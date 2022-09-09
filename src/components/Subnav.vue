@@ -1,6 +1,24 @@
 <template>
-  <div class="w-full h-16 bg-white border-b border-solid border-brand-gray-1">
-    <div class="flex items-center h-full px-8">content</div>
+  <div id="result_box">
+    <div class="results">
+      <a> link </a>
+      <a> title 1 </a>
+      <p>description</p>
+    </div>
+  </div>
+  <div id="result_box1">
+    <div class="results">
+      <a> link </a>
+      <a> title 1 </a>
+      <p>description</p>
+    </div>
+  </div>
+  <div id="result_box2">
+    <div class="results">
+      <a> link </a>
+      <a> title 1 </a>
+      <p>description</p>
+    </div>
   </div>
 </template>
 

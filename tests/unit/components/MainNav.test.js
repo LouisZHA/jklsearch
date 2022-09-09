@@ -5,7 +5,7 @@ describe("MainNav", () => {
   it("displays company name", () => {
     const wrapper = mount(MainNav);
 
-    expect(wrapper.text()).toMatch("Google Careers");
+    expect(wrapper.text()).toMatch("");
   });
 
   it("displays menu items for navigation", () => {

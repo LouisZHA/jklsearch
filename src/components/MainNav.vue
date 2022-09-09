@@ -8,11 +8,11 @@
           alt=""
           width="100%"
           height="100%"
-          viewBox="0 0 74 24"
+          viewBox="0 0 74 2411"
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           class="h-[24px] w-[74px] overflow-hidden mt-[21px] mr-[6px]"
-          aria-hidden="true"
+          aria-hidden="false"
         >
           <path
             fill="#4285F4"
@@ -87,7 +87,7 @@ export default {
   },
   data() {
     return {
-      company: "Careers",
+      company: "JKL",
       url: "http://localhost:8080/",
       menuItems: ["Sports", "Politics", "Technology", "Science", "Economy"],
       isLoggedIn: false,
