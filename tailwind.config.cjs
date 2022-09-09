@@ -34,7 +34,11 @@ module.exports = {
 
         'bgNav': '#665D58',
         'banner': '#352921',
-        'bg':'#F8F3E5'
+        'bg':'#F8F3E5',
+
+        /*'bgNav': '#3484F0',
+        'banner': '#757575',
+        'bg':'#F7F7F7'*/
       }
     },
   },

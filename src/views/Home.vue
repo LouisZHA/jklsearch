@@ -17,12 +17,12 @@ import Search from '../components/Search.vue'
 import Cards from '../components/Cards.vue'
 
 export default {
-    name: 'Home',
-    components: {
-        TopNav,
-        Banner,
-        Search,
-        Cards
-    }
+  name: 'Home',
+  components: {
+    TopNav,
+    Banner,
+    Search,
+    Cards
+  }
 }
 </script>
