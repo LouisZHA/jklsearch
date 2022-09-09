@@ -1,5 +1,13 @@
 # Desktop Home Page Implementation
 
+## Fri, Sep 9 2022 - version 1.1
+
+- Freezed navigation bar
+- Adjusted news cards layout
+- Added time stamp
+- Fixed the text display
+
+![alt text](/gif_v1.1.gif)
 
 ## Fri, Sep 9 2022 - version 1.0
 
