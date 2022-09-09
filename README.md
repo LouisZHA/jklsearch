@@ -5,3 +5,4 @@
 
 Implemented the layout of the main page, and imported text and images for the news cards (updated in real time using the Gigablast API).
 
+![alt text](/screen_shot_v1.png)
