@@ -5,3 +5,8 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 ## Recommended IDE Setup
 
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+
+
+## 
+
+Implemented the layout of the main page, and imported text and images for the news cards (updated in real time using the Gigablast API).
