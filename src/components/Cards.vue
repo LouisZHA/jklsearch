@@ -5,31 +5,36 @@
                 style="border-radius: 2px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;"
                 class="p-0 mr-5 mb-5 card bg-base-100 shadow-xl">
                 <a :href=item.url>
-                <div v-if="item.imageUrl!=none">
+                    <div v-if="item.imageUrl!=none">
 
-                    <figure><img :src=item.imageUrl>
-                    </figure>
-                </div>
-                <div v-else>
-                    <div class="p-28 bg-light">
-
+                        <figure><img :src=item.imageUrl>
+                        </figure>
                     </div>
-                </div>
-                <div class="card-body">
-                    <h2 class="card-title">
-                        {{item.title}}
-                    </h2>
-                    <p>{{item.sum}}</p>
-                    <div class="mt-6 card-actions">
-                        <div class="badge badge-outline">{{item.site}}</div>
-                        <div class="badge badge-outline">
-                            <p>
-                                {{getDateDiff(item.pubdateUTC)}}
-                            </p>
+                    <div v-else>
+                        <div class="p-28 bg-light">
+
                         </div>
                     </div>
+                </a>
+                <div class="card-body">
+                    <a :href=item.url>
+                        <h2 class="card-title">
+                            {{item.title}}
+                        </h2>
+                        <p>{{item.sum}}</p>
+                    </a>
+
+                    <div class="mt-6 card-actions">
+                        <a :href=item.site>
+                            <div class="badge badge-outline">{{item.site}}</div>
+                        </a>
+
+                        <p>
+                            {{getDateDiff(item.pubdateUTC)}}
+                        </p>
+
+                    </div>
                 </div>
-            </a>
             </div>
         </div>
     </div>
