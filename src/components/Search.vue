@@ -15,7 +15,7 @@
           <input v-model=searchKey style="outline:none; width:100%;" type="search" placeholder="Just Search…"
             class="mr-2 w-full input input-bordered text-lg" />
           <button style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;border-radius: 2px;"
-            class="bg-white flex p-2 hover:bg-green">
+            class="bg-white flex p-2">
             <span @click="searchKey!=''?jump():1" class="material-icons text-4xl text-muted mt-1">search</span>
           </button>
         </div>

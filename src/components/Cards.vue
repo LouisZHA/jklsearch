@@ -1,13 +1,14 @@
 <template>
     <div class="px-32 py-10 w-full flex flex-wrap">
         <div v-for="(arr, index) in subArrays" :key="index" class="w-1/3">
-            <div v-for="(item, i) in arr" :key="i" style="border-radius: 2px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;"
-            class="p-0 mr-5 mb-5 card bg-base-100 shadow-xl">
+            <div v-for="(item, i) in arr" :key="i"
+                style="border-radius: 2px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;"
+                class="p-0 mr-5 mb-5 card bg-base-100 shadow-xl">
+                <a :href=item.url>
                 <div v-if="item.imageUrl!=none">
-                    <a :href=item.url>
-                        <figure><img :src=item.imageUrl>
-                        </figure>
-                    </a>
+
+                    <figure><img :src=item.imageUrl>
+                    </figure>
                 </div>
                 <div v-else>
                     <div class="p-28 bg-light">
@@ -28,6 +29,7 @@
                         </div>
                     </div>
                 </div>
+            </a>
             </div>
         </div>
     </div>
