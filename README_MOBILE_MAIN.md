@@ -5,7 +5,7 @@
 - main_dark:                 #211614
 - main_midTone:          #665E59
 - main_ light:                #FAF2E5
-- main_white:               #FFFFFF
+- ddddddmain_white:               #FFFFFF
 
 ## Screenshots
 
