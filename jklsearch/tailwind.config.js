@@ -3,16 +3,15 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}", ],
   theme: {
     colors: {
-      'blue': '#9fcacc',
-      'purple': '#7e5bef',
-      'pink': '#ff49db',
-      'orange': '#ff7849',
-      'green': '#13ce66',
-      'yellow': '#ffc82c',
-      'gray-dark': '#273444',
-      'gray': '#8492a6',
-      'gray-light': '#d3dce6',
+      'search-bar': "#FEFEFE",
+      'search-bar-stroke': "#A7A9AD",
+      'result-box': '#FAF8F2',
+      'green': '#7abb3a',
     },
+    borderWidth: {
+      '3': '3px'
+    },
+
     extend: {},
   },
   plugins: [require("daisyui")],
