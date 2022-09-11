@@ -1,14 +1,13 @@
 <template>
   
-  <SearchBar />
+  <SearchBar @clicked="onSearchBar"/>
   <div id="result_box">
-    <ResultBox />
+    <ResultBox :search_term= this.results[0] ></ResultBox>
   </div>
   <!-- <SERP_Footer /> -->
 
 </template>
 <script>
-
   import SearchBar from "./components/SearchBar.vue"
   //import SERP_Footer from "./components/SERP_Footer.vue"
   import ResultBox from "./components/ResultBox.vue"

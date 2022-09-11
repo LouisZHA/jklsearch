@@ -14,6 +14,23 @@
     </div>
     
 </template>
+<script>
+export default {
+
+  data(){
+    return{
+      searchKey:''
+    }
+  },
+
+  methods:{
+    postQuery(){
+
+      this.$emit('clicked',this.searchKey)
+    }
+  }
+}
+</script>
 <style>
     #search_box{
         box-sizing: border-box;

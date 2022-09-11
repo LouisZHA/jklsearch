@@ -1,9 +1,9 @@
 <template>
     <div id = "result-box" class = "bg-result-box rounded-lg">
         <div class="text-small">
-        <a href="/">
+
             <ul class="text-green">
-                Link1
+              {{search_term.url}}
             </ul>
             <ul class="text-xl">
               {{search_term.title}}
@@ -11,7 +11,7 @@
             <ul class="text-base">
               {{search_term.sum}}
             </ul>
-        </a>
+
         </div>
     </div>
    
@@ -36,6 +36,5 @@
         width: 100%;
         height: 110px;
         margin-bottom: 45px;
-        
     }
 </style>
