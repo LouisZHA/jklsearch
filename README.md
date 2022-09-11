@@ -1,4 +1,4 @@
-# jkl-serp
+# jkl_serp
 
 ## Project setup
 ```
