@@ -16,6 +16,7 @@
     "@fortawesome/sharp-solid-svg-icons": "^6.2.0",
     "@fortawesome/vue-fontawesome": "^3.0.1",
     "@tailwindcss/line-clamp": "^0.4.2",
+    "axios": "^0.27.2",
     "daisyui": "^2.25.0",
     "tailwind-scrollbar-hide": "^1.1.7",
     "vue": "^3.2.37",
