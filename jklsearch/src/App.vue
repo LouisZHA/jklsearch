@@ -12,15 +12,34 @@
   import SearchBar from "./components/SearchBar.vue"
   //import SERP_Footer from "./components/SERP_Footer.vue"
   import ResultBox from "./components/ResultBox.vue"
-
-  
-  export default{
+  import axios from "axios"
+  export default {
     name: "App",
     components: {
-    SearchBar,
-    ResultBox
-},
+      SearchBar,
+      ResultBox
+    },
+    data() {
+      return {
+        searchKey: "",
+        results: []
+        }
+    },
+
+    methods:
+      {
+        async onSearchBar(value)
+        {
+          console.log(value);
+          this.searchKey = value; // s
+          let result = await axios.get("https://www.gigablast.com/search?q=" + this.searchKey + "&userid=575&code=2061275956&qcountry=au&format=json");
+
+          this.results = result.data.results.slice(0,20);
+          console.log(this.results[0].title)
+        }
+      }
   }
+
 </script>
 
 

@@ -6,16 +6,30 @@
                 Link1
             </ul>
             <ul class="text-xl">
-                TITLE
+              {{search_term.title}}
             </ul>
             <ul class="text-base">
-                Lore impsum
+              {{search_term.sum}}
             </ul>
         </a>
         </div>
     </div>
    
 </template>
+
+<script>
+  export default{
+    props: ['search_term'],
+    methods: {
+      test() {
+        console.log(this.search_term);
+      },
+    }
+  }
+</script>
+
+
+
 <style>
     #result-box{
         
