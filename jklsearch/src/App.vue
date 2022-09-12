@@ -1,8 +1,10 @@
 <template>
-  
-  <SearchBar @clicked="onSearchBar"/>
+
+  <SearchBar  @clicked="onSearchBar"/>
   <div id="result_box">
-    <ResultBox :search_term= this.results[0] ></ResultBox>
+    <div v-for="result in results" v-bind:key="result.title" style="position: relative">
+      <ResultBox :search_term= result></ResultBox>
+    </div>
   </div>
   <!-- <SERP_Footer /> -->
 
@@ -33,8 +35,8 @@
           this.searchKey = value; // s
           let result = await axios.get("https://www.gigablast.com/search?q=" + this.searchKey + "&userid=575&code=2061275956&qcountry=au&format=json");
 
-          this.results = result.data.results.slice(0,20);
-          console.log(this.results[0].title)
+          this.results = result.data.results.slice(0,60);
+          console.log(this.results)
         }
       }
   }
@@ -46,16 +48,15 @@
 
 <style>
 
-
 /*
 ------------------------------------------------result box
 */
 #result_box{
   box-sizing: border-box;
   position: absolute;
-  width: 95%;
+  width: 90%;
   height: 80%;
-  margin: 150px 2.5% 0 2.5%;
+  margin: 150px 5% 0 5%;
 }
 
 
