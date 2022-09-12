@@ -1,6 +1,6 @@
 # Desktop Home Page Implementation
 
-## Mon, Sep 12 2022 - version 1.2
+## Mon, Sep 12 2022 - version 1.3
 
 - Changed hover on news card
 - Tried Google UI theme color
