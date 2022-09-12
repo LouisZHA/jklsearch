@@ -1,5 +1,5 @@
 <template>
-    <div style="position:fixed;z-index: 999;" class="top-0 navbar bg-bgNav">
+    <div style="position:fixed;z-index: 999;" class="top-0 navbar bg-bgNav rounded-b-full">
         <div class="flex items-center">
             <button class="p-4 flex items-center justify-center mr-32">
                 <!-- <svg width="32" height="20" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg">
