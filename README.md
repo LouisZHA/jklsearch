@@ -2,6 +2,13 @@
 
 ## Mon, Sep 12 2022 - version 1.2
 
+- Changed hover on news card
+- Tried Google UI theme color
+
+![alt text](/gif_v1.3.gif)
+
+## Mon, Sep 12 2022 - version 1.2
+
 - Added footer
 
 ![alt text](/footer.png)
