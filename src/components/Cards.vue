@@ -1,40 +1,11 @@
 <template>
     <div class="px-32 py-10 w-full flex flex-wrap">
         <div v-for="(arr, index) in subArrays" :key="index" class="w-1/3">
-            <div v-for="(item, i) in arr" :key="i"
+            <div v-for="(card, i) in arr" :key="i"
                 style="border-radius: 2px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;"
                 class="p-0 mr-5 mb-5 card bg-base-100 shadow-xl">
-                <a :href=item.url>
-                    <div v-if="item.imageUrl!=none">
-
-                        <figure><img :src=item.imageUrl>
-                        </figure>
-                    </div>
-                    <div v-else>
-                        <div class="p-28 bg-light">
-
-                        </div>
-                    </div>
-                </a>
-                <div class="card-body">
-                    <a :href=item.url>
-                        <h2 class="card-title">
-                            {{item.title}}
-                        </h2>
-                        <p>{{item.sum}}</p>
-                    </a>
-
-                    <div class="mt-6 card-actions">
-                        <a :href=item.site>
-                            <div class="badge badge-outline">{{item.site}}</div>
-                        </a>
-
-                        <p>
-                            {{getDateDiff(item.pubdateUTC)}}
-                        </p>
-
-                    </div>
-                </div>
+                <Card :imageUrl="`${card.imageUrl}`" :url="`${card.url}`" :title="`${card.title}`" :sum="`${card.sum}`"
+                    :site="`${card.site}`" :pubdateUTC="`${card.pubdateUTC}`"/>
             </div>
         </div>
     </div>
@@ -42,8 +13,12 @@
 
 <script>
 import axios from "axios"
+import Card from './Card.vue'
 
 export default {
+    components: {
+        Card
+    },
     handle(url) {
         window.location.href = 'url'
     },
@@ -67,47 +42,9 @@ export default {
     },
     async mounted() {
         let result = await axios.get("https://www.gigablast.com/search?searchtype=news&userid=575&code=2061275956&onlylang=en&qcountry=au&format=json");
-        console.warn(result.data.results.slice(3));
+        console.warn(result.data.results[0].imageUrl);
         this.cards = result.data.results
     },
-
-    methods: {
-        getDateDiff(dateTimeStamp) {
-            var minute = 1000 * 60;
-            var hour = minute * 60;
-            var day = hour * 24;
-            var halfamonth = day * 15;
-            var month = day * 30;
-            var year = day * 365;
-            var now = Math.floor(new Date().getTime() / 1000);
-            var diffValue = now - dateTimeStamp;
-            var result;
-            if (diffValue < 0) {
-                return;
-            }
-            var yearC = diffValue / year;
-            var monthC = diffValue / month;
-            var weekC = diffValue / (7 * day);
-            var dayC = diffValue / day;
-            var hourC = diffValue / hour;
-            var minC = diffValue / minute;
-            if (yearC >= 1) {
-                result = "" + parseInt(yearC) + " years ago";
-            } else if (monthC >= 1) {
-                result = "" + parseInt(monthC) + " months ago";
-            } else if (weekC >= 1) {
-                result = "" + parseInt(weekC) + " weeks ago";
-            } else if (dayC >= 1) {
-                result = "" + parseInt(dayC) + " days ago";
-            } else if (hourC >= 1) {
-                result = "" + parseInt(hourC) + " hours ago";
-            } else if (minC >= 1) {
-                result = "" + parseInt(minC) + " minutes ago";
-            } else
-                result = "just now";
-            return result;
-        }
-    }
 }
 </script>
 
