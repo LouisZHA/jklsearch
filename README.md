@@ -1,5 +1,11 @@
 # Desktop Home Page Implementation
 
+## Mon, Sep 12 2022 - version 1.2
+
+- Added footer
+
+![alt text](/footer.png)
+
 ## Fri, Sep 9 2022 - version 1.1
 
 - Freezed navigation bar

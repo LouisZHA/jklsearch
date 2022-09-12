@@ -4,6 +4,7 @@
     <Banner />
     <Search />
     <Cards />
+    <Footer />
   </div>
   <!-- <router-link to="/search">Search</router-link> -->
 </template>
@@ -15,6 +16,7 @@ import TopNav from '../components/TopNav.vue'
 import Banner from '../components/Banner.vue'
 import Search from '../components/Search.vue'
 import Cards from '../components/Cards.vue'
+import Footer from '../components/Footer.vue'
 
 export default {
   name: 'Home',
@@ -22,7 +24,8 @@ export default {
     TopNav,
     Banner,
     Search,
-    Cards
+    Cards,
+    Footer,
   }
 }
 </script>
