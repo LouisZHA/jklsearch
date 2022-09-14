@@ -1,5 +1,5 @@
 <template>
-  <div class="px-64 py-7">
+  <div class="px-64 pt-44 pb-10">
     <!--<div class="form-control">
     <div class="flex items-center justify-center input-group">
     <input type="text" placeholder="Search…" class="input input-bordered" />

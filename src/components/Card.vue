@@ -2,7 +2,7 @@
     <div @mouseover="hover = true" @mouseleave="hover = false" class="relative bg-bg">
         <a :href=url>
             <div>
-                <figure>
+                <figure class="rounded-t-3xl bg-bgNav">
                     <img class="rounded-t-3xl" :src=imageUrl onerror="this.style.display='none'">
                 </figure>
             </div>
@@ -16,9 +16,8 @@
             </a>
 
             <div class="mt-6 card-actions">
-
                 <div style="border: none;" :href=site class="badge badge-outline bg-source text-white font-bold">#{{site}}</div>
-                <div style="border: none;" class="badge badge-outline bg-light">{{getDateDiff(pubdateUTC)}}</div>
+                <div style="border: none;" class="badge badge-outline bg-light font-bold">{{getDateDiff(pubdateUTC)}}</div>
 
             </div>
         </div>

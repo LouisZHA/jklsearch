@@ -1,9 +1,7 @@
 <template>
   <div class="bg-bg">
     <TopNav />
-    <Banner />
-    <Search />
-    <Cards />
+    <Cards class="pt-32"/>
     <Footer />
   </div>
   <!-- <router-link to="/search">Search</router-link> -->
