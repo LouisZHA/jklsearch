@@ -1,13 +1,13 @@
 <template>
-    <div @mouseover="hover = true" @mouseleave="hover = false" class="relative">
+    <div @mouseover="hover = true" @mouseleave="hover = false" class="relative bg-bg">
         <a :href=url>
             <div>
                 <figure>
-                    <img :src=imageUrl onerror="this.style.display='none'">
+                    <img class="rounded-t-3xl" :src=imageUrl onerror="this.style.display='none'">
                 </figure>
             </div>
         </a>
-        <div class="card-body">
+        <div class="rounded-b-3xl bg-white card-body">
             <a :href=url>
                 <h2 class="card-title">
                     {{title}}
@@ -17,8 +17,8 @@
 
             <div class="mt-6 card-actions">
 
-                <div :href=site class="badge badge-outline">{{site}}</div>
-                <div class="badge badge-outline">{{getDateDiff(pubdateUTC)}}</div>
+                <div style="border: none;" :href=site class="badge badge-outline bg-source text-white font-bold">#{{site}}</div>
+                <div style="border: none;" class="badge badge-outline bg-light">{{getDateDiff(pubdateUTC)}}</div>
 
             </div>
         </div>
@@ -75,14 +75,18 @@ export default {
 </script>
 
 <style>
-    img {
-        opacity: 1.0;
-        filter: alpha(opacity=100);
-    }
-    
-    img:hover {
-        background-color: black;
-        opacity: 0.8;
-        filter: alpha(opacity=40);
-    }
+img {
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+}
+
+img:hover {
+    background-color: black;
+    opacity: 0.8;
+    filter: alpha(opacity=40);
+}
+
+card-body {
+    border-radius: 50%;
+}
 </style>

@@ -36,9 +36,14 @@ module.exports = {
         'banner': '#352921',
         'bg':'#F8F3E5',*/
 
+        'bgNav': '#232339',
+        'banner': '#121212',
+        'bg':'#AEB3BB',
+        'source': '#4A6A95'
+        /*
         'bgNav': '#3484F0',
         'banner': '#757575',
-        'bg':'#F7F7F7'
+        'bg':'#F7F7F7'*/
       }
     },
   },

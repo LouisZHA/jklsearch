@@ -14,7 +14,7 @@
         <div tabindex="0" class="flex relative">
           <input v-model=searchKey style="outline:none; width:100%;" type="search" placeholder="Just Search…"
             class="mr-2 w-full input input-bordered text-lg" />
-          <button style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;border-radius: 2px;"
+          <button style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;border-radius: 10px;"
             class="bg-white flex p-2">
             <span @click="searchKey!=''?jump():1" class="material-icons text-4xl text-muted mt-1">search</span>
           </button>
@@ -54,7 +54,7 @@ export default {
 <style>
 input[type=search]::-webkit-search-cancel-button {
   -webkit-appearance: searchfield-cancel-button;
-  margin-right: 8mm;
+  margin-right: 1mm;
   cursor: pointer;
   height: 10px;
   width: 10px;
@@ -67,6 +67,6 @@ input[type=search] {
   height: 60px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border: none;
-  border-radius: 2px;
+  border-radius: 10px;
 }
 </style> 
