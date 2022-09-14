@@ -6,7 +6,7 @@
 - Masonry layout Implementation
 
 ![alt text](/gif_v2.0.gif)
-![alt text](/screenshot_v2.0.png){width=100}
+![alt text](/screenshot_v2.0.png)
 ![alt text](/screenshot_v2.0-.png)
 
 ## Mon, Sep 12 2022 - version 1.2
