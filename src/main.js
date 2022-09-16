@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import './assets/tailwindcss.css'
+
 
 
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'

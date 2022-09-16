@@ -10,52 +10,52 @@
 
         </el-breadcrumb>
 
-        <!--result-->
-        <div class="resultTable">
-            <div class="resultList" >
-                <p class="url">https://albanese-pushed-to-pass-urgent</p>
-                <h3 class="title">Albanese pushed to pass ‘urgent’ integrity reforms after Queen’s death delays</h3>
-                <p>Independent MPs are urging Prime Minister Anthony Albanese to honour his election pledge to pass laws this year to create a national integrity commission rather than allowing the deadline to slip after Parliament was suspended to mark the death of the Queen.</p>
-
-
-            </div>
+        <!-- <div>
+            <input v-model="keyword" />
+            {{ keyword }}
         </div>
-        
 
-        <div class="resultTable">
-            <div class="resultList" >
-                <p class="url">https://www.abc.net.au/news/2022-09-12/man-stabbed-to-death-</p>
-                <h3 class="title">Man stabbed to death on street in Brisbane suburb of Mansfield, manhunt underway</h3>
-                <p>A 23-year-old man has been fatally stabbed at Mansfield in Brisbane's south-eastern suburbs, with police investigating bikie gang links to the attack.</p>
-
-
+        <div id="result_box">
+            <div v-for="result in results" v-bind:key="result.title" style="position: relative">
+            <ResultBox :search_term= result></ResultBox>
             </div>
-        </div>
-        
-        <div class="resultTable">
-            <div class="resultList" >
-                <p class="url">https://www.w3schools.com/colors/colors_names.asp</p>
-                <h3 class="title">Fraudster's severed foot gets inquest off to dramatic start</h3>
-                <p>In a sign of frustration over the sudden suspension, crossbench MPs including Tasmanian independent Andrew Wilkie and Victorian independent Zoe Daniel said they expected Labor to meet the original deadline because Australians wanted rapid action to prevent corruption.</p>
+        </div> -->
 
-
-            </div>
-        </div>
-        
-        <div class="resultTable">
-            <div class="resultList" >
-                <p class="url">https://www.theguardian.com/australia-news/2022/sep/1</p>
-                <h3 class="title">Jacqui Lambie walks back support for Pauline Hanson tweet as race row continues</h3>
-                <p>Lambie now claims she did not agree with the language used when the One Nation leader told a fellow senator to “piss off back to Pakistan”, but continued to blame Greens senator Mehreen Faruqi for “disgraceful” comments about the Queen’s death.</p>
-
-
-            </div>
-        </div>
-        
+  
         
 </template>
 
-
+// <script>
+// import ResultBox from "./../../components/ResultBox.vue"
+// // import LayOut from "./../LayOut/LayOut.vue"
+// import axios from "axios"
+// export default {
+//   components: {
+//       ResultBox
+//     },
+//   data() {
+//     return {
+//       keyword: "",
+//     };
+//   },
+//   watch: {
+//     keyword(v) {
+//       this.search(v);
+//     },
+//   },
+//   methods: {
+//     async search(keyword) {
+//       // your logic
+//       console.log("search keyword::", keyword);
+//       this.searchKey = this.keyword; //
+//       let result = await axios.get("https://www.gigablast.com/search?q=" + this.searchKey + "&userid=575&code=2061275956&qcountry=au&format=json");
+      
+//       this.results = result.data.results.slice(0,60);
+//       console.log(this.results)
+//     },
+//   },
+// };
+// </script>
 
 
 
@@ -68,7 +68,7 @@
 .resultList{
 
   width: 70%;
-  padding: 15px;
+  padding: 10px;
   /* border: 1px solid gray; */
   margin: 0;
   
@@ -90,7 +90,13 @@
 
 }
 
-
+#result_box{
+  box-sizing: border-box;
+  position: absolute;
+  width: 90%;
+  height: 80%;
+  margin: 150px 5% 0 5%;
+}
 
 
 
