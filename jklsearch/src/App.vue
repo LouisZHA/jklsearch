@@ -2,11 +2,19 @@
 
   <SearchBar  @clicked="onSearchBar"/>
   <div id="result_box" >
-    <div v-for="(result,index) in results" v-bind:key="index" style="position: relative">
+    <div v-for="(result,index) in dataShow" v-bind:key="index" style="position: relative">
       <ResultBox :search_term= result></ResultBox>
     </div>
+    <br>
+    <br>
   </div>
+
   <!-- footer page slicer  -->
+  <div class="left-1/2 translate-x-[-50%] flex flex-raw justify-center items-center bg-bg" style="align-items: center;position: fixed; bottom:0; width: 100%;height: 3rem">
+    <button class="right-0 hover:bg-search-button-hover"  @click="prePage">Last Page</button>
+    <span v-for="(i,key_index) in pageNum" v-bind:key="key_index" @click="page(i)" :style="{cursor: 'pointer', margin:'10px'}">{{ i }}</span>
+    <button class="left-0 hover:bg-search-button-hover"  @click="nextPage">Next Page</button>
+  </div>
   <!-- <SERP_Footer /> -->
 
 </template>
@@ -24,8 +32,9 @@
     data() {
       return {
         searchKey: "",
-        results: [],
-        // data for page slider
+        results: [], //  results data
+
+        // _____________data for page slider_____________
         totalPage: [], // data for page slicer
         pageSize: 10, // number of result in each page
         pageNum: 1,  // totalPage/pageSize
@@ -33,22 +42,27 @@
         currentPage: 0, // first page ID
         }
     },
-    // created(){
-    //   this.pageNum = Math.ceil(this.data.length / this.pageSize) || 1;//计算有多少页数据，默认为1
-    //
-    //   // 循环页面
-    //   for (let i = 0; i < this.pageNum; i++) {
-    //     // 每一页都是一个数组 形如 [['第一页的数据'],['第二页的数据'],['第三页数据']]
-    //     // 根据每页显示数量 将后台的数据分割到 每一页,假设pageSize为2， 则第一页是1-2条，即slice(0,2)，第二页是3-4条，即slice(3,4)以此类推
-    //     this.totalPage[i] = this.data.slice(this.pageSize * i, this.pageSize * (i + 1))
-    //   }
-    //
-    //   // catch first page data
-    //   this.dataShow = this.totalPage[this.currentPage];
-    // },
+
 
     methods:
       {
+        nextPage() {
+          if (this.currentPage === this.pageNum - 1) return ;
+          this.dataShow = this.totalPage[++this.currentPage];
+        },
+
+        prePage() {
+          if (this.currentPage === 0) return ;
+          this.dataShow = this.totalPage[--this.currentPage];
+        },
+
+        // click page
+        page(i){
+          this.currentPage = i
+          this.dataShow = this.totalPage[i-1];
+        },
+
+
         async onSearchBar(value)
         {
           console.log(value);
@@ -56,7 +70,18 @@
           let result = await axios.get("https://www.gigablast.com/search?q=" + this.searchKey + "&userid=575&code=2061275956&qcountry=au&format=json");
 
           this.results = result.data.results.slice(0,60);
+          // --------------------page slider initial-----------------------
+          this.pageNum = Math.ceil(this.results.length / this.pageSize) || 1;//计算有多少页数据，默认为1
+          // loop for pages data
+          for (let i = 0; i < this.pageNum; i++) {
+            this.totalPage[i] = this.results.slice(this.pageSize * i, this.pageSize * (i + 1))
+          }
+          // catch first page data
+          this.dataShow = this.totalPage[this.currentPage];
+          //---------------------------------------------------------------
           console.log(this.results)
+          console.log(this.totalPage)
+          console.log(this.dataShow)
         }
       }
   }
@@ -75,7 +100,6 @@
   box-sizing: border-box;
   position: absolute;
   width: 100%;
-  height: 80%;
   margin: 140px 0 0 0;
 }
 
