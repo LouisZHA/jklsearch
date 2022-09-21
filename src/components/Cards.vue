@@ -1,7 +1,7 @@
 <template>
-    <MasonryWall :items="cards" :ssr-columns="1" :column-width="350" :gap="16" class="px-32">
+    <MasonryWall :items="cards" :ssr-columns="1" :column-width="350" :gap="16" style="padding-left: 8%; padding-right: 8%;" class="">
         <template #default="{ item, index }">
-            <div :style="{ height: `${item}px` }" class="flex items-center justify-center">
+            <div :style="{ height: `${item}px`}" class="flex items-center justify-center">
                 <Card :imageUrl="`${item.imageUrl}`" :url="`${item.url}`" :title="`${item.title}`" :sum="`${item.sum}`"
                     :site="`${item.site}`" :pubdateUTC="`${item.pubdateUTC}`" />
             </div>

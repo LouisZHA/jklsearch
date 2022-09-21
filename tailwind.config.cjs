@@ -40,10 +40,11 @@ module.exports = {
         'banner': '#121212',
         'bg':'#AEB3BB',
         'source': '#4A6A95'
-        /*
-        'bgNav': '#3484F0',
+        
+        /*'bgNav': '#3484F0',
         'banner': '#757575',
-        'bg':'#F7F7F7'*/
+        'bg':'#F7F7F7',
+        'source': '#C4DBFA'*/
       }
     },
   },

@@ -8,7 +8,7 @@
                         d="M8 7.09627C9.06667 2.82961 11.7333 0.696274 16 0.696274C22.4 0.696274 23.2 5.49627 26.4 6.29627C28.5333 6.82961 30.4 6.02961 32 3.89627C30.9333 8.16294 28.2667 10.2963 24 10.2963C17.6 10.2963 16.8 5.49627 13.6 4.69627C11.4667 4.16294 9.6 4.96294 8 7.09627ZM0 16.6963C1.06667 12.4296 3.73333 10.2963 8 10.2963C14.4 10.2963 15.2 15.0963 18.4 15.8963C20.5333 16.4296 22.4 15.6296 24 13.4963C22.9333 17.7629 20.2667 19.8963 16 19.8963C9.6 19.8963 8.8 15.0963 5.6 14.2963C3.46667 13.7629 1.6 14.5629 0 16.6963Z"
                         fill="white" />
                 </svg>-->
-                <p class="text-white font-bold text-4xl">JKL.IO</p>
+                <p class="text-white font-bold text-3xl">JKL.IO</p>
             </button>
             <div class="navHide flex flex-1 justify-end tabs">
                 <div v-for="(item, i) in tabItems" :key="i" class="flex">
@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <div style="width: 60%;" class="dropdown">
+        <div style="width: 55%;" class="dropdown">
             <div tabindex="0" class="flex relative">
                 <input v-model=searchKey style="outline:none; width:100%;" type="search" placeholder="Just Search…"
                     class="mr-2 w-full input input-bordered text-lg" />

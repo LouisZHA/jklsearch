@@ -40,7 +40,7 @@ export default {
   methods: {
     jump() {
       this.$router.push({ path: '/search' }),
-        this.$router.push({ name: 'Search', params: { searchKey: this.searchKey } })
+      this.$router.push({ name: 'Search', params: { searchKey: this.searchKey } })
     },
   },
   data() {
