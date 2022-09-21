@@ -1,5 +1,7 @@
 # Desktop Home Page Implementation
 
+![alt text](./src/images/gif_v2.0.gif) 
+
 ## Weds, Sep 21 2022 - version 2.1
 
 - responsive to mobile
@@ -10,8 +12,6 @@
 
 - Changed color theme
 - Masonry layout Implementation
-
-    ![alt text](./src/images/gif_v2.0.gif)
 
 ## Mon, Sep 12 2022 - version 1.2
 
