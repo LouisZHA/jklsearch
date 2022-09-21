@@ -4,14 +4,14 @@
 
 - responsive to mobile
 
-    <img src="screenshot_v2.1.png" width=20% class="items-center justify-center">
+    <img src="./src/images/screenshot_v2.1.png" width=20%>
 
 ## Weds, Sep 15 2022 - version 2.0
 
 - Changed color theme
 - Masonry layout Implementation
 
-    ![alt text](/gif_v2.0.gif)
+    ![alt text](./src/images/gif_v2.0.gif)
 
 ## Mon, Sep 12 2022 - version 1.2
 
