@@ -13,11 +13,13 @@
               {{search_term.title}}
             </ul>
             <ul class="text-base text-sm" v-if="search_term.sum.length<=1000">
-
+              <img v-bind:src="search_term.imageUrl" id = "search_image" v-if="search_term.hasOwnProperty('imageUrl')"
+              align = "right">
               {{search_term.sum}}
             </ul>
             <ul class="text-base text-sm " v-else>
-
+              <img v-bind:src="search_term.imageUrl" id = "search_image" v-if="search_term.hasOwnProperty('imageUrl')"
+              align = "right">
               {{search_term.sum.slice(0,999)}}......
             </ul>
             <br>
@@ -45,4 +47,10 @@
         /*margin-left: 10%;*/
 
     }
+    #search_image{
+
+             width: 5.5rem;
+             height: 5.5rem;
+
+         }
 </style>

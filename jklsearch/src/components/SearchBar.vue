@@ -9,7 +9,8 @@
         focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600
         dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
           <button class="right-0 hover:bg-search-button-hover" style="width: 10%" @click="postQuery">Go</button>
-          <input  v-model="searchKey" type="search" id="input_textarea" style="width: 90%;outline:none"  placeholder="Search" required>
+          <input  v-model="searchKey" type="search" id="input_textarea" @keyup.enter="postQuery"
+          style="width: 90%;outline:none"  placeholder="Search" required>
         </div>
     </div>
     
