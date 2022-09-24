@@ -1,44 +1,27 @@
+<script setup>
+// This starter template is using Vue 3 <script setup> SFCs
+// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
+import SERP from './components/SERP.vue'
+</script>
+
 <template>
-  
-  <router-view/>
+  <div>
 
+  </div>
   
-
+  <SERP/>
 </template>
 
-
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: left;
-  color: #2c3e50;
+<style scoped>
+/* .logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
 }
-
-/*flex布局类名*/ 
-
-.display-float{
-  display: flex;
-  justify-content: space-between;
-  align-items:center;
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
-.flex{
-  display: flex;
-  align-items: center;
-
-}
-
-.page_content{
-  box-sizing: border-box;
-  display: block;
-  width:100%;
-  padding:20px;
-  background: #ffff;
-  margin-top:30px;
-
-}
-
-
+.logo.vue:hover {
+  filter: drop-shadow(0 0 2em #42b883aa);
+} */
 </style>
