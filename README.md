@@ -2,6 +2,10 @@
 
 ![alt text](./src/images/gif_v2.0.gif) 
 
+## Weds, Sep 24 2022 - version 3.0
+
+- autocomplete (without implementation of API)
+
 ## Weds, Sep 21 2022 - version 2.1
 
 - responsive to mobile
