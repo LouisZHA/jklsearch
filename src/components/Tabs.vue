@@ -1,5 +1,5 @@
 <template>
-    <div class="navHide flex flex-1 justify-end tabs">
+    <div class="navHide flex justify-end tabs">
         <div v-for="(item, i) in tabItems" :key="i" class="flex">
             <button class="text-white mr-6">
                 {{item.name}}

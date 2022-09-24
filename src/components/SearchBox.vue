@@ -2,11 +2,11 @@
   <div class="flex-1">
     <div class="absolute inset-0 z-0" @click="modal = false"></div>
     <div class="flex relative">
-      <input v-model=searchKey autocomplete="off" @input="filter" @focus="modal = true"
-        style="outline:none; width:100%;" type="search" placeholder="Just Search…"
+      <input v-model=input autocomplete="off" @input="filter" @focus="modal = true" @keyup.enter="jump()"
+        style="outline:none; width:100%; min-width: 0;" type="search" placeholder="JKL.IO Search…"
         class="mr-2 w-full input input-bordered text-lg rounded-t-xl" />
       <button style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;border-radius: 10px;" class="bg-white flex p-2">
-        <span @click="searchKey!=''?jump():1" class="material-icons text-4xl text-muted mt-1">search</span>
+        <span @click="input!=''?jump():1" class="material-icons text-4xl text-muted mt-1">search</span>
       </button>
 
     </div>
@@ -26,37 +26,45 @@
 
 <script>
 export default {
+  handle(url) {
+    window.location.href = 'url'
+  },
+  props: ['searchKey'],
   data() {
     return {
-      searchKey: '',
+      input: '',
       modal: false,
       inputs: ["anu email", "anu library", "ANU", "anu timetable", "ANU sport", "anu wattle", "anu hours", "anu calendar", "anu isis", "anu jobs", "anu timetable 2022", "anu term dates", "anu timetable viewer", "anu travel form", "anu thrive", "anu tax clinic", "anu templates", "anu travel insurance"],
       history: ["Florida", "Serena Williams", "NLP"],
-      filtered: []
+      filtered: [],
     }
   },
   mounted() {
     this.filter();
+    if (this.searchKey) {
+      this.input = this.searchKey;
+    }
   },
   methods: {
     jump() {
       this.$router.push({ path: '/search' }),
-        this.$router.push({ name: 'Search', params: { searchKey: this.searchKey } })
+      this.$router.push({ name: 'Search', params: { searchKey: this.input } })
     },
     filter() {
-      if (this.searchKey.length == 0) {
+      if (this.input.length == 0) {
         this.filtered = this.history;
       } else {
         this.filtered = this.inputs.filter(searchKey => {
-          return searchKey.toLowerCase().startsWith(this.searchKey.toLowerCase());
+          return searchKey.toLowerCase().startsWith(this.input.toLowerCase());
         });
       }
 
     },
     set(f) {
-      this.searchKey = f;
+      this.input = f;
       this.modal = false;
-    }
+      this.jump();
+    },
   },
   watch: {
     searchKey() {

@@ -5,6 +5,7 @@
 ## Weds, Sep 24 2022 - version 3.0
 
 - autocomplete (without implementation of API)
+- keybind - enter
 
 ## Weds, Sep 21 2022 - version 2.1
 
