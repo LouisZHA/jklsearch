@@ -1,53 +1,68 @@
 <template>
-  <div class="px-64 pt-44 pb-10">
-    <!--<div class="form-control">
-    <div class="flex items-center justify-center input-group">
-    <input type="text" placeholder="Search…" class="input input-bordered" />
-    <button class="btn btn-square bg-white">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-    </button>
-    </div>
-  </div>-->
+  <div class="flex-1">
+    <div class="absolute inset-0 z-0" @click="modal = false"></div>
+    <div class="flex relative">
+      <input v-model=searchKey autocomplete="off" @input="filter" @focus="modal = true"
+        style="outline:none; width:100%;" type="search" placeholder="Just Search…"
+        class="mr-2 w-full input input-bordered text-lg rounded-t-xl" />
+      <button style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;border-radius: 10px;" class="bg-white flex p-2">
+        <span @click="searchKey!=''?jump():1" class="material-icons text-4xl text-muted mt-1">search</span>
+      </button>
 
-    <div class="flex items-center justify-center">
-      <div style="width:90%;min-width:300px;" class="dropdown">
-        <div tabindex="0" class="flex relative">
-          <input v-model=searchKey style="outline:none; width:100%;" type="search" placeholder="Just Search…"
-            class="mr-2 w-full input input-bordered text-lg" />
-          <button style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;border-radius: 10px;"
-            class="bg-white flex p-2">
-            <span @click="searchKey!=''?jump():1" class="material-icons text-4xl text-muted mt-1">search</span>
-          </button>
+    </div>
+    <div v-if="filtered && modal" tabindex="0" style="outline:none; width:50%;"
+      class="rounded-xl dropdown-content menu p-2 shadow bg-bg">
+      <ul class="text-white">
+        <div v-for="(item,i) in filtered" :key="i">
+          <li v-if="i<5" class="py-2 border-b cursor-pointer" @click="set(item)">
+          {{item}}
+        </li>
         </div>
-        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 w-52">
-          <a @click="jump" class="text-sm">indigenous people bushfire</a>
-          <a class="text-sm">Maxpool 2D</a>
-          <a class="text-sm">jevons paradox</a>
-          <a class="text-sm">news aggregator</a>
-          <a class="text-sm">search with nlp and machine learning</a>
-          <a class="text-sm">Serena Williams</a>
-        </ul>
-      </div>
+      </ul>
     </div>
   </div>
+
 </template>
 
 <script>
-import { computed } from "@vue/reactivity";
-import axios from "axios"
-
 export default {
+  data() {
+    return {
+      searchKey: '',
+      modal: false,
+      inputs: ["anu email", "anu library", "ANU", "anu timetable", "ANU sport", "anu wattle", "anu hours", "anu calendar", "anu isis", "anu jobs", "anu timetable 2022", "anu term dates", "anu timetable viewer", "anu travel form", "anu thrive", "anu tax clinic", "anu templates", "anu travel insurance"],
+      history: ["Florida", "Serena Williams", "NLP"],
+      filtered: []
+    }
+  },
+  mounted() {
+    this.filter();
+  },
   methods: {
     jump() {
       this.$router.push({ path: '/search' }),
-      this.$router.push({ name: 'Search', params: { searchKey: this.searchKey } })
+        this.$router.push({ name: 'Search', params: { searchKey: this.searchKey } })
     },
-  },
-  data() {
-    return {
-      searchKey: "",
+    filter() {
+      if (this.searchKey.length == 0) {
+        this.filtered = this.history;
+      } else {
+        this.filtered = this.inputs.filter(searchKey => {
+          return searchKey.toLowerCase().startsWith(this.searchKey.toLowerCase());
+        });
+      }
+
+    },
+    set(f) {
+      this.searchKey = f;
+      this.modal = false;
     }
   },
+  watch: {
+    searchKey() {
+      this.filter();
+    }
+  }
 }
 </script>
 

@@ -34,8 +34,7 @@ export default {
     },
     methods: {
         getDateDiff(dateTimeStamp) {
-            console.log(this.imageUrl)
-            var minute = 1000 * 60;
+            var minute = 60;
             var hour = minute * 60;
             var day = hour * 24;
             var halfamonth = day * 15;

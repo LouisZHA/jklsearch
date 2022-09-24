@@ -26,8 +26,7 @@ export default {
         }
     },
     async mounted() {
-        let result = await axios.get("https://www.gigablast.com/search?searchtype=news&userid=575&code=2061275956&onlylang=en&qcountry=au&format=json");
-        console.warn(result.data.results[0].imageUrl);
+        let result = await axios.get("https://www.gigablast.com/search?searchtype=news&snik=0.0&dr=1&hacr=1&userid=575&code=2061275956&onlylang=en&qcountry=au&format=json");
         this.cards = result.data.results
     },
 }
