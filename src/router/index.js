@@ -1,7 +1,7 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import Home from '../views/Home.vue'
 import Search from '../views/Search.vue'
-import SearchTopNav from '../components/SearchTopNav.vue'
+import SERP from '../components/SERP.vue'
 
 const routes = [
     {
@@ -17,8 +17,8 @@ const routes = [
     },
     {
         path:'/search',
-        name:'SearchTopNav',
-        component: SearchTopNav,
+        name:'SERP',
+        component: SERP,
         props: true
     }
 ]
