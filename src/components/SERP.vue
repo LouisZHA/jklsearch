@@ -41,7 +41,9 @@
 <div v-if="results.length" v-for="item in results" class=" ml-5 mr-20 w-3/5 mt-5  max-w-70  bg-yellow-50 hover:bg-yellow-100 focus:ring-4 focus:ring-yellow-200 font-medium rounded-lg px-5 py-2.5 mb-2">
 <!-- {{results}} -->
 <a id="url" class="text-sm">{{item.url}}</a>
-<div class="text-2xl text-green-500 ">{{item.title}}</div>
+<div>
+<a :href="item.url" class="text-2xl text-green-500 ">{{item.title}}</a>
+</div>
 <a id="descrption">{{item.sum}}</a>
 </div>
 </div>
