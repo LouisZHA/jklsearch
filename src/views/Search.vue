@@ -1,7 +1,7 @@
 <template>
   <nav class="bg-bgNav border-gray-200 px-2 sm:px-4 py-2.5 rounded flex flex-row">
       <div class="container flex flex-wrap justify-between items-center mx-auto">
-          <a href="https://flowbite.com/" class="flex items-center">
+          <a href="http://localhost:5173/" class="flex items-center">
               <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo"> -->
               <span class="text-white  self-center text-xl font-semibold ">JKL.IO</span>
           </a>
@@ -65,6 +65,14 @@
           <ResultBox :search_term=result></ResultBox>
       </div>
   </div>
+
+  <!-- footer page slicer  -->
+  <div class="left-1/2 translate-x-[-50%] flex flex-raw justify-center items-center bg-bg" style="align-items: center;position: fixed; bottom:0; width: 100%;height: 3rem">
+    <button class="right-0 hover:bg-search-button-hover"  @click="prePage">Last Page</button>
+    <span v-for="(i,key_index) in pageNum" v-bind:key="key_index" @click="page(i)" :style="{cursor: 'pointer', margin:'10px'}">{{ i }}</span>
+    <button class="left-0 hover:bg-search-button-hover"  @click="nextPage">Next Page</button>
+  </div>
+
   <Footer />
 
 
@@ -83,6 +91,13 @@ export default {
         return {
             keyword: "",
             results: [],
+
+            //data for page 
+            totalPage: [], // data for page slicer
+            pageSize: 10, // number of result in each page
+            pageNum: 1,  // totalPage/pageSize
+            dataShow: [], // data for current page present
+            currentPage: 0, // first page ID
         };
     },
     watch: {
@@ -97,14 +112,45 @@ export default {
         }
     },
     methods: {
+        nextPage() {
+          if (this.currentPage === this.pageNum - 1) return ;
+          this.results = this.totalPage[++this.currentPage];
+        },
+
+        prePage() {
+          if (this.currentPage === 0) return ;
+          this.results = this.totalPage[--this.currentPage];
+        },
+
+        // click page
+        page(i){
+          this.currentPage = i
+          this.results = this.totalPage[i-1];
+        },
+
         async search(keyword) {
             // your logic
             console.log("search keyword::", keyword);
             let result = await axios.get("https://www.gigablast.com/search?q=" + this.keyword + "&userid=575&code=2061275956&qcountry=au&format=json");
-            this.results = result.data.results.slice(0, 10);
+            this.results = result.data.results.slice(0, 9999);
             console.log(this.results);
             console.warn(this.searchKey);
+
+          // --------------------page slider initial-----------------------
+            this.pageNum = Math.ceil(this.results.length / this.pageSize) || 1;//计算有多少页数据，默认为1
+            // loop for pages data
+            for (let i = 0; i < this.pageNum; i++) {
+                this.totalPage[i] = this.results.slice(this.pageSize * i, this.pageSize * (i + 1))
+            }
+            // catch first page data
+            this.dataShow = this.totalPage[this.currentPage];
+            //---------------------------------------------------------------
+            console.log(this.results)
+            console.log(this.totalPage)
+            console.log(this.results)
         },
+
+
     },
     components: { Footer }
 };
