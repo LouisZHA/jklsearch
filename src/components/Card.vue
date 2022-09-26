@@ -16,7 +16,7 @@
             </a>
 
             <div class="mt-6 card-actions">
-                <div style="border: none;" :href=site class="badge badge-outline bg-source text-white font-bold">#{{site}}</div>
+                <div style="border: none;" :href=site class="badge badge-outline bg-source text-white font-bold">{{site}}</div>
                 <div style="border: none;" class="badge badge-outline bg-light font-bold">{{getDateDiff(pubdateUTC)}}</div>
 
             </div>
