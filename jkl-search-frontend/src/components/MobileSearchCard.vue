@@ -2,7 +2,7 @@
 	<div :class="`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${newsFeed_s_isLoading? 'opacity-100': 'opacity-0'} transition-all duration-1000`">
 		<!-- <div class="flex items-center justify-center "> -->
 			<div
-				class="w-40 h-40 border-t-8 border-r-0 border-b-8 border-l-0 border-light-subtext rounded-full animate-spin">
+				class="w-40 h-40 border-t-8 border-r-0 border-b-8 border-l-0 border-white rounded-full animate-spin">
 			</div>
 		<!-- </div> -->
 	</div>
@@ -29,10 +29,10 @@
 		<div class="w-auto h-[234px] flex-none"></div>
 		<div class="overflow-y-scroll  scrollbar-hide  max-h-full flex flex-col snap-y snap-mandatory">
 			<div class="w-auto h-2 ml-6 mr-6 mb-2 mt-3 rounded-md italic flex justify-center">
-				<div class="w-fit">Release</div>
+				<div class="w-fit text-white">Release</div>
 			</div>
 			<div class="w-auto h-2 ml-6 mr-6 mb-2 mt-3 rounded-md italic flex justify-center">
-				<div class="w-fit">to reload...</div>
+				<div class="w-fit text-white">to reload...</div>
 			</div>
 			<div class="w-auto h-card flex-none"></div>
 			<div v-for="feed in newsFeed_s" v-bind:key="feed.uid" :class="getStyle_newsCard(feed)"
@@ -56,10 +56,10 @@
 			<div class="w-auto h-card flex-none"></div>
 			<div class="w-auto h-card flex-none"></div>
 			<div class="w-auto h-2 ml-6 mr-6 mb-2 mt-3 rounded-md italic flex justify-center">
-				<div class="w-fit">You've reached</div>
+				<div class="w-fit text-white">You've reached</div>
 			</div>
 			<div class="w-auto h-2 ml-6 mr-6 mb-2 mt-3 rounded-md italic flex justify-center">
-				<div class="w-fit">the deepest rabbit hole...</div>
+				<div class="w-fit text-white">the deepest rabbit hole...</div>
 			</div>
 			<div class="w-auto h-card flex-none"></div>
 			<div class="w-auto h-card flex-none"></div>
@@ -158,7 +158,7 @@ export default {
 						uid: result.docId,
 						url: result.url,
 						selected: false,
-						color: "#665D58",
+						color: "#2B4773",
 						title: result.sum,
 						title_html: result.htmlSum,
 						time: result.pubdateStr,
