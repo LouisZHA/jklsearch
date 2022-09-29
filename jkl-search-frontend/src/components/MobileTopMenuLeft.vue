@@ -23,7 +23,7 @@ export default {
 	name: "MobileTopMenuLeft",
 	data() {
 		return {
-			window: {
+			window_param: {
 				height: window.innerHeight,
 				width: window.innerWidth,
 			},

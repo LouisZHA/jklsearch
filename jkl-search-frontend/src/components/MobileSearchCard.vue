@@ -11,10 +11,10 @@
 		:class="`absolute top-40 w-full flex flex-row ${newsFeed_s_isLoading? 'mt-10 opacity-0': 'mt-0 opacity-100'} transition-all duration-1000`"
 		@click="set_searchBox_focus(search_onFocus, newsFeed_s)">
 		<div v-bind:class="getStyle_SearchBox(search_onFocus)">
-			<span><input type="text"
+			<span><input v-model=search_text type="text"
 					class="ml-10 mr-10 w-card h-full pl-2 input input-bordered rounded-lg input-md text-center text-light-texts shadow-sm focus:shadow-xl focus:outline-none focus:ml-6 focus:mr-6 focus:w-cardExpand  transition-all text-ellipsis pr-10"
 					placeholder="What are you looking for ... ?" /></span>
-			<span class="absolute inset-y-0 right-10 flex items-center pr-3"><svg class="h-5 w-5 fill-black"
+			<span class="absolute inset-y-0 right-10 flex items-center pr-3" @click="searchSubmission(this.search_text)"><svg class="h-5 w-5 fill-black"
 					xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30">
 					<path
 						d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z">
@@ -73,6 +73,7 @@ export default {
 	name: "MobileSearchCard",
 	data() {
 		return {
+			search_text:"",
 			newsFeed_s_isLoading: true,
 			search_onFocus: false,
 			newsFeed_s: [
@@ -86,7 +87,7 @@ export default {
 				// { uid: "7", selected: false, color: "#665D58", title: "The latest COVID-19 case numbers from around the states and territories", time: "2022.09.09", img: "https://live-production.wcms.abc-cdn.net.au/a17409d5d60c057adb8a08cd0975e87b?impolicy=wcms_crop_resize&cropH=1667&cropW=2500&xPos=0&yPos=0&width=862&height=575", },
 				// { uid: "8", selected: false, color: "#665D58", title: "Who was with Queen when she died (ABC News)", time: "2022.09.09", img: "https://live-production.wcms.abc-cdn.net.au/526b3dd91879ce45190bdea85e039f83?impolicy=wcms_crop_resize&cropH=788&cropW=1182&xPos=0&yPos=116&width=862&height=575", },
 				// { uid: "9", selected: false, color: "#665D58", title: "The latest COVID-19 case numbers from around the states and territories", time: "2022.09.09", img: "https://live-production.wcms.abc-cdn.net.au/a17409d5d60c057adb8a08cd0975e87b?impolicy=wcms_crop_resize&cropH=1667&cropW=2500&xPos=0&yPos=0&width=862&height=575", },
-			], window: {
+			], window_param: {
 				height: window.innerHeight,
 				width: window.innerWidth,
 			},
@@ -188,6 +189,22 @@ export default {
 
 
 	methods: {
+		searchSubmission: function (query_string) {
+			// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+			// ┃                   __   __               ___         _                        ┃
+			// ┃                   \ \ / /__ _  _ _ _   / __|___  __| |___                    ┃
+			// ┃                    \ V / _ \ || | '_| | (__/ _ \/ _` / -_)                   ┃
+			// ┃                     |_|\___/\_,_|_|    \___\___/\__,_\___|                   ┃
+			// ┃                                                                              ┃
+			// ┃                       ___               _  _                                 ┃
+			// ┃                      / __|___  ___ ___ | || |___ _ _ ___                     ┃
+			// ┃                     | (_ / _ \/ -_|_-< | __ / -_) '_/ -_)                    ┃
+			// ┃                      \___\___/\___/__/ |_||_\___|_| \___|                    ┃
+			// ┃                                                                              ┃
+			// ┃                                                                              ┃
+			// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+			console.log("Search query string is [", query_string, "]");
+		},
 		set_searchBox_focus: function (searchbox_state, newsFeed_s) {
 			for (let i = 0; i < newsFeed_s.length; i++) { newsFeed_s[i].selected = false; }
 			searchbox_state = true;
@@ -201,14 +218,17 @@ export default {
 		//=============
 		//=============
 		handleClick_newsCard: function (newsFeed_obj, newsFeed_s) {
-			if (newsFeed_obj.selected == true) {
-				newsFeed_obj.selected = false; return;
-			}
-			for (let i = 0; i < newsFeed_s.length; i++) {
-				newsFeed_s[i].selected = false;
-			}
-			newsFeed_obj.selected = true;
-			return;
+			// console.log(newsFeed_obj)
+			// if (newsFeed_obj.selected == true) {
+			// 	newsFeed_obj.selected = false; return;
+			// }
+			// for (let i = 0; i < newsFeed_s.length; i++) {
+			// 	newsFeed_s[i].selected = false;
+			// }
+			// newsFeed_obj.selected = true;
+			// window.open(newsFeed_obj.url);
+			// return;
+			window.open(newsFeed_obj.url, "_blank");
 		},
 		getStyle_newsCard: function (newsFeed_obj) {
 			if (newsFeed_obj.selected == true) { return "w-auto h-card flex-none bg-light-card ml-cardNormal mr-cardNormal mb-2 mt-3 rounded-md shadow-sm flex flex-row transition-all shadow-lg ml-cardSelected mr-cardSelected h-cardExpand"; }
