@@ -1,7 +1,9 @@
 <template>
-    <div id = "result-box" class = "bg-result-box rounded-lg">
+    <div id = "result-box" class = "bg-result-box rounded-t-lg" >
+
       <a v-bind:href="search_term.url">
         <div class="text-sm ml-[10%] mr-[8%]"  >
+          <div class="bg-result-box-decorate rounded-r-lg left-0 h-full w-[5%] absolute"></div>
             <br>
             <ul class="text-green text-sm" v-if="search_term.url.length<=30">
              {{search_term.url}}
@@ -13,18 +15,17 @@
               {{search_term.title}}
             </ul>
             <ul class="text-base text-sm" v-if="search_term.sum.length<=1000">
-              <img v-bind:src="search_term.imageUrl" id = "search_image" v-if="search_term.hasOwnProperty('imageUrl')"
-              align = "right">
+
               {{search_term.sum}}
             </ul>
             <ul class="text-base text-sm " v-else>
-              <img v-bind:src="search_term.imageUrl" id = "search_image" v-if="search_term.hasOwnProperty('imageUrl')"
-              align = "right">
+
               {{search_term.sum.slice(0,999)}}......
             </ul>
             <br>
         </div>
       </a>
+
     </div>
 </template>
 
@@ -39,7 +40,7 @@
 
 <style>
     #result-box{
-        
+
         width: 100%;
         _height:100px;
         min-height:100px;
@@ -47,10 +48,4 @@
         /*margin-left: 10%;*/
 
     }
-    #search_image{
-
-             width: 5.5rem;
-             height: 5.5rem;
-
-         }
 </style>
