@@ -24,12 +24,12 @@
 
 </template>
 <script>
-import SearchBar from "./components/SearchBar.vue"
+import SearchBar from "@/components/SearchBar.vue"
 //import SERP_Footer from "./components/SERP_Footer.vue"
-import ResultBox from "./components/ResultBox.vue"
+import ResultBox from "@/components/ResultBox.vue"
 import axios from "axios"
 export default {
-  name: "App",
+  name: 'SearchPage',
   components: {
     SearchBar,
     ResultBox

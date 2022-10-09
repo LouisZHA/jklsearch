@@ -12,6 +12,7 @@
 		@click="set_searchBox_focus(search_onFocus, newsFeed_s)">
 		<div v-bind:class="getStyle_SearchBox(search_onFocus)">
 			<span><input v-model=search_text type="text"
+					@keyup.enter="searchSubmission(this.search_text)"
 					class="ml-10 mr-10 w-card h-full pl-2 input input-bordered rounded-lg input-md text-center text-light-texts shadow-sm focus:shadow-xl focus:outline-none focus:ml-6 focus:mr-6 focus:w-cardExpand  transition-all text-ellipsis pr-10"
 					placeholder="What are you looking for ... ?" /></span>
 			<span class="absolute inset-y-0 right-10 flex items-center pr-3" @click="searchSubmission(this.search_text)"><svg class="h-5 w-5 fill-black"
@@ -68,7 +69,8 @@
 </template>
 
 <script>
-import axios from "axios"
+
+import axios from "axios";
 export default {
 	name: "MobileSearchCard",
 	data() {
@@ -181,22 +183,18 @@ export default {
 				this.newsFeed_s_isLoading = false;
 			});
 	},
+	
 	methods: {
+
 		searchSubmission: function (query_string) {
-			// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-			// ┃                   __   __               ___         _                        ┃
-			// ┃                   \ \ / /__ _  _ _ _   / __|___  __| |___                    ┃
-			// ┃                    \ V / _ \ || | '_| | (__/ _ \/ _` / -_)                   ┃
-			// ┃                     |_|\___/\_,_|_|    \___\___/\__,_\___|                   ┃
-			// ┃                                                                              ┃
-			// ┃                       ___               _  _                                 ┃
-			// ┃                      / __|___  ___ ___ | || |___ _ _ ___                     ┃
-			// ┃                     | (_ / _ \/ -_|_-< | __ / -_) '_/ -_)                    ┃
-			// ┃                      \___\___/\___/__/ |_||_\___|_| \___|                    ┃
-			// ┃                                                                              ┃
-			// ┃                                                                              ┃
-			// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-			console.log("Search query string is [", query_string, "]");
+			console.log(query_string)
+			// Named route
+			
+			
+			console.log("OK")
+			this.$router.push('search')
+			console.log("OK2")
+			this.$root.$emit('onSearchBar', query_string)
 		},
 		set_searchBox_focus: function (searchbox_state, newsFeed_s) {
 			for (let i = 0; i < newsFeed_s.length; i++) { newsFeed_s[i].selected = false; }

@@ -1,12 +1,14 @@
 <script>
-  import MobileHome from './view/MobileHome.vue';
+//import MobileHome from "./views/MobileHome.vue";
+  //import MobileHome from './view/MobileHome.vue';
+
   export default {
     name:"App",
-    components:{MobileHome},
+    components:{},
     computed:{}
   }
 </script>
 
 <template>
-  <MobileHome/>
+  <router-view />
 </template>
