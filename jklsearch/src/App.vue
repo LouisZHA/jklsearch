@@ -53,20 +53,22 @@
     methods:
       {
         nextPage() {
-          if (this.currentPage === this.pageNum) return ;
-          this.dataShow = this.totalPage[++this.currentPage-1];
-
+          if (this.currentPage >= this.pageNum) this.currentPage = this.pageNum ;
+          else this.dataShow = this.totalPage[++this.currentPage-1];
+          console.log(this.currentPage)
         },
 
         prePage() {
-          if (this.currentPage === 1) return ;
-          this.dataShow = this.totalPage[--this.currentPage];
+          if (this.currentPage === 1) this.currentPage=1 ;
+          else this.dataShow = this.totalPage[--this.currentPage-1];
+          console.log(this.currentPage)
         },
 
         // click page
         page(i){
           this.currentPage = i
           this.dataShow = this.totalPage[i-1];
+          console.log(this.currentPage)
         },
 
 
