@@ -201,8 +201,8 @@ export default {
 			searchbox_state = true;
 		},
 		getStyle_SearchBox: function (searchbox_state) {
-			if (searchbox_state == false) { return "flex-auto w-full h-12 ml-0 mr-0 transition-all"; }
-			if (searchbox_state == true) { return "flex-auto w-full h-12 ml-0 mr-0 transition-all"; }
+			if (searchbox_state === false) { return "flex-auto w-full h-12 ml-0 mr-0 transition-all"; }
+			if (searchbox_state === true) { return "flex-auto w-full h-12 ml-0 mr-0 transition-all"; }
 			// if (searchbox_state == false) { console.warn("@"); return "flex-auto w-full h-12 ml-0 mr-0 transition-all"; }
 			// if (searchbox_state == true)  { console.warn("#"); return "flex-auto w-full h-12 ml-0 mr-0 transition-all"; }
 		},
@@ -223,7 +223,7 @@ export default {
 			window.open(newsFeed_obj.url, "_blank");
 		},
 		getStyle_newsCard: function (newsFeed_obj) {
-			if (newsFeed_obj.selected == true) { return "w-auto h-card flex-none bg-light-card ml-cardNormal mr-cardNormal mb-2 mt-3 rounded-md shadow-sm flex flex-row transition-all shadow-lg ml-cardSelected mr-cardSelected h-cardExpand"; }
+			if (newsFeed_obj.selected === true) { return "w-auto h-card flex-none bg-light-card ml-cardNormal mr-cardNormal mb-2 mt-3 rounded-md shadow-sm flex flex-row transition-all shadow-lg ml-cardSelected mr-cardSelected h-cardExpand"; }
 			else { return "w-auto h-card flex-none bg-light-card ml-cardNormal mr-cardNormal mb-2 mt-3 rounded-md shadow-sm flex flex-row transition-all "; }
 		},
 		getStyle_newsCardBar_L: function (newsFeed_obj) {
@@ -235,23 +235,23 @@ export default {
 		getStyle_newsCardBar_R: function (newsFeed_obj) {
 			// if (newsFeed_obj.selected == false) { return "snap-start snap-always flex-none h-card w-6  order-first transition-all rounded-l-md"; }
 			// else { return "snap-start snap-always flex-none h-full w-2  order-first transition-all rounded-l-md"; }
-			if (newsFeed_obj.selected == false) { return "snap-start snap-always flex-none h-card w-4  order-first transition-all rounded-l-md"; }
+			if (newsFeed_obj.selected === false) { return "snap-start snap-always flex-none h-card w-4  order-first transition-all rounded-l-md"; }
 			else { return "snap-start snap-always flex-none h-full w-2  order-first transition-all rounded-l-md"; }
 		},
 		//=============
 		//=============
 		getStyle_newsCardImg_L: function (newsFeed_obj) {
-			if (newsFeed_obj.selected == true) { return "flex-none h-card w-0  rounded-md   right-0 object-cover transition-transform opacity-100  duration-100"; }
+			if (newsFeed_obj.selected === true) { return "flex-none h-card w-0  rounded-md   right-0 object-cover transition-transform opacity-100  duration-100"; }
 			else { return "flex-none h-card w-0  rounded-md   right-0 object-cover transition-all opacity-0        duration-100"; }
 		},
 		getStyle_newsCardImg_R: function (newsFeed_obj) {
-			if (newsFeed_obj.selected == true) { return "flex-none h-card w-auto pl-0 pr-0 rounded-md   right-0 object-cover transition-all duration-100"; }
+			if (newsFeed_obj.selected === true) { return "flex-none h-card w-auto pl-0 pr-0 rounded-md   right-0 object-cover transition-all duration-100"; }
 			else { return "flex-none h-card w-20 pl-5 pr-0 rounded-r-md right-0 object-cover transition-all duration-100"; }
 		},
 		//=============
 		//=============
 		getStyle_title: function (newsFeed_obj) {
-			if (newsFeed_obj.selected == false) { return "w-full h-10   flex-1 grow-1 pl-2 text-light-subtext pt-2"; }
+			if (newsFeed_obj.selected === false) { return "w-full h-10   flex-1 grow-1 pl-2 text-light-subtext pt-2"; }
 			else { return "w-full h-card flex-1 grow-0 pl-2 text-light-subtext pt-2"; }
 		},
 		getStyle_title_span: function (newsFeed_obj) {
@@ -259,21 +259,21 @@ export default {
 			else { return "text-ellipsis transition-all line-clamp-2"; }
 		},
 		getStyle_description: function (newsFeed_obj) {
-			if (newsFeed_obj.selected == false) { return "flex-none w-full h-10   flex-1 grow-1 pl-2 text-light-subtext pt-2"; }
+			if (newsFeed_obj.selected === false) { return "flex-none w-full h-10   flex-1 grow-1 pl-2 text-light-subtext pt-2"; }
 			else { return "w-full h-card flex-1 grow-0 pl-2 text-light-subtext pt-2"; }
 		},
 		getStyle_description_span: function (newsFeed_obj) {
-			if (newsFeed_obj.selected == false) { return "w-full h-10   flex-1 grow-1 pl-2 text-light-subtext pt-2"; }
+			if (newsFeed_obj.selected === false) { return "w-full h-10   flex-1 grow-1 pl-2 text-light-subtext pt-2"; }
 			else { return "w-full h-card flex-1 grow-0 pl-2 text-light-subtext pt-2"; }
 		},
 		//=============
 		//=============
 		getStyle_time_T: function (newsFeed_obj) {
-			if (newsFeed_obj.selected == false) { return "invisible transition-all w-0 h-0 text-none flex-1 grow-0 pr-2 text-light-subtext text-right text-xs underline decoration-amber-80 decoration-2 align-baseline pb-2"; }
+			if (newsFeed_obj.selected === false) { return "invisible transition-all w-0 h-0 text-none flex-1 grow-0 pr-2 text-light-subtext text-right text-xs underline decoration-amber-80 decoration-2 align-baseline pb-2"; }
 			else { return "invisible transition-all w-0 h-0 text-none flex-1 grow-0 pr-2 text-light-subtext text-right text-xs underline decoration-amber-80 decoration-0 align-baseline pb-2"; }
 		},
 		getStyle_time_B: function (newsFeed_obj) {
-			if (newsFeed_obj.selected == false) { return "transition-all w-full h-10 flex-1 grow-0 pr-2 text-light-subtext           text-right text-xs decoration-amber-80 opacity-100  decoration-0 align-baseline pb-2    transition-none"; }
+			if (newsFeed_obj.selected === false) { return "transition-all w-full h-10 flex-1 grow-0 pr-2 text-light-subtext           text-right text-xs decoration-amber-80 opacity-100  decoration-0 align-baseline pb-2    transition-none"; }
 			else { return "transition-all w-full h-0  text-none flex-1 grow-0 pr-2 text-light-subtext text-right text-[0px] decoration-amber-80 opacity-0    decoration-0 align-baseline pb-2 transition-none"; }
 		},
 	}

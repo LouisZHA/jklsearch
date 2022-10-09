@@ -1,26 +1,28 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import MobileHome from '@/views/MobileHome.vue'
-import SearchPage from '@/views/SERP.vue'
+import Home from '../views/MobileHome.vue'
+import Search from '../views/SERP.vue'
+
 
 const routes = [
     {
         path:'/',
         name:'Home',
-        component: MobileHome,
-        props: true
+        component: Home
     },
     {
         path:'/search',
         name:'Search',
-        component: SearchPage,
+        component: Search,
         props: true
     },
 
 ]
 
-const router = createRouter({
-    history: createWebHistory(),
-    routes,
-  });
-  
-  export default router;
+const router = createRouter(
+    {
+        history: createWebHistory(),
+        routes,
+    }
+)
+
+export default router

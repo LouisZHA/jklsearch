@@ -1,6 +1,6 @@
 <template>
   <div class="bg-bg w-full h-full fixed" style="z-index:0" ></div>
-  <SearchBar  @clicked="onSearchBar"/>
+  <SearchBar @clicked="onSearchBar"/>
 
   <div id="result_bar" >
     <div v-for="(result,index) in dataShow" v-bind:key="index" style="position: relative">
@@ -45,6 +45,7 @@ export default {
       pageNum: 1,  // totalPage/pageSize
       dataShow: [], // data for current page present
       currentPage: 1, // first page ID
+
 
     }
   },
