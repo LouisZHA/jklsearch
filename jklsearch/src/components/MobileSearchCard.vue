@@ -93,28 +93,25 @@ export default {
 			},
 		};
 	},
-
 	async mounted() {
 		let base = "https://www.gigablast.com/search?"; 		//BASE URL
 		let searchtype = "news";								//Set to news or images to search for those respective entities.
 		let format = "json";		  						    //Display output in this format. Can be html, json or xml.
-		let q = ""; 			         						//(REQUIRED) the query to search with
-		let c = "";			          						    //(REQUIRED) the collection to search in
+		//let q = ""; 			         						//(REQUIRED) the query to search with
+		//let c = "";			          						    //(REQUIRED) the collection to search in
 		let n = 4;              						        //The number of results returned. If you want more than 1000 results you must use &stream=1 so Gigablast does not run out of memory. Search feed customers are typically limited to 10 results per query, so additional queries must be conducted to receive more results.
 		let s = 0;				          						//Start displaying at search result #X. Starts at 0. If you want more than 1000 results in total, you must use &stream=1 so Gigablast does not run out of memory.
-		let showimages = 0;	    						        //Should we return or show the thumbnail images in the search results?
-		let showgoodimages = 1;							        //Should we return or show the thumbnail images in the search results if they are close to all the search terms?
+		//let showimages = 0;	    						        //Should we return or show the thumbnail images in the search results?
+		//let showgoodimages = 1;							        //Should we return or show the thumbnail images in the search results if they are close to all the search terms?
 		let request_url = base +
 			"searchtype=" + searchtype + "&" +
 			"format=" + format + "&" +
 			"n=" + n + "&" +
 			"s=" + s + "&" +
 			"userid=575&code=2061275956&onlylang=en&qcountry=au";
-
 		// if (q == null || q.length == 0) {
 		// else if (c == null || c.length == 0) {
 		// else {let result = await axios.get("https://www.gigablast.com/search?searchtype=news&userid=575&code=2061275956&onlylang=en&qcountry=au&format=json");
-
 		// let response = await axios.get(request_url);
 		// let axios_results = response.data.results;
 		// let axios_haveMoreResults = response.moreResultsFollow;
@@ -122,7 +119,6 @@ export default {
 		// // console.log(response);
 		// // console.log(axios_result);
 		// console.log(response);
-
 		// // if(axios_results==null || axios_results.length==0){
 		// // 	console.warn("No data was retrieved from the axios request.");
 		// // } else {
@@ -146,12 +142,11 @@ export default {
 		// 	console.log("pubdateUTC     "+result.pubdateUTC);
 		// }
 		// // }
-
 		axios.get(request_url).then(
 			response => {
 				let axios_results = response.data.results;
-				let axios_haveMoreResults = response.moreResultsFollow;
-				let axios_queryInfo = response.queryInfo;
+				//let axios_haveMoreResults = response.moreResultsFollow;
+				//let axios_queryInfo = response.queryInfo;
 				axios_results.forEach(result => {
 					// 	console.log("==========================================");
 					// 	console.log("==========================================");
@@ -186,8 +181,6 @@ export default {
 				this.newsFeed_s_isLoading = false;
 			});
 	},
-
-
 	methods: {
 		searchSubmission: function (query_string) {
 			// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
@@ -228,6 +221,7 @@ export default {
 			// newsFeed_obj.selected = true;
 			// window.open(newsFeed_obj.url);
 			// return;
+			console.log(newsFeed_s);
 			window.open(newsFeed_obj.url, "_blank");
 		},
 		getStyle_newsCard: function (newsFeed_obj) {
@@ -235,6 +229,7 @@ export default {
 			else { return "w-auto h-card flex-none bg-light-card ml-cardNormal mr-cardNormal mb-2 mt-3 rounded-md shadow-sm flex flex-row transition-all "; }
 		},
 		getStyle_newsCardBar_L: function (newsFeed_obj) {
+			console.log(newsFeed_obj);
 			// if (newsFeed_obj.selected == true) { return "snap-start snap-always flex-none h-0 w-0 transition-all ease-out rounded-md opacity-0  duration-1000"; }
 			// else { return "snap-start snap-always flex-none h-0 w-0 transition-all ease-out rounded-md opacity-70 duration-1000"; }
 			return "hidden";
